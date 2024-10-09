@@ -272,9 +272,6 @@
         if (imageResponse.records && imageResponse.records.length > 0) {
           const record = imageResponse.records[0];
 
-          // Import without waiting.
-          record.import();
-
           avatarRecord = record;
           let image = await record.data.text();
 
