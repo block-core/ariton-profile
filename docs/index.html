@@ -20,7 +20,6 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
-    <!-- <link rel="stylesheet" type="text/css" href="app.css" /> -->
     <meta property="og:title" content="Ariton" />
     <meta
       property="og:description"
@@ -108,59 +107,7 @@
         text-decoration: underline;
       }
 
-      .hero {
-        text-align: center;
-        min-height: 400px;
-        height: calc(100vh - 80px - 80px);
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        margin-bottom: 80px;
-        color: var(--section-text-color);
-      }
-
-      .larger {
-        font-size: 1.4em;
-      }
-
-      .centered {
-        text-align: center;
-      }
-
-      .ariton-logo-container {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
-        margin-right: 3em;
-      }
-
-      .ariton-logo {
-        background-image: var(--logo-image);
-        background-repeat: no-repeat;
-        background-position: left center;
-        width: 42px;
-        height: 42px;
-        margin-right: 0.4em;
-      }
-
-      .ariton-text {
-        background-image: var(--logo-text);
-        background-repeat: no-repeat;
-        background-position: left center;
-        width: 100px;
-        height: 50px;
-      }
-
-      .ariton-logo-footer {
-        background-image: var(--logo-image);
-        background-repeat: no-repeat;
-        background-position: left center;
-        width: 128px;
-        height: 128px;
-      }
-
+	  
       button {
         background-color: var(--button-background-color);
         color: var(--button-text-color);
@@ -180,60 +127,6 @@
         color: var(--text-color);
         background-color: var(--header-border);
       }
-
-      .download-container button {
-        margin-left: 3em;
-      }
-
-      header {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        background-color: var(--background-color);
-        color: var(--header-text);
-        display: flex;
-        align-items: center;
-        padding: 15px 20px;
-        /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
-        z-index: 1000;
-        transition: background-color 0.4s, color 0.4s;
-        justify-content: center;
-        border-bottom: 1px solid var(--header-border);
-      }
-
-      footer {
-        border-top: 1px solid var(--header-border);
-        width: 100%;
-        display: flex;
-        justify-content: center;
-      }
-
-      .footer-container {
-        display: flex;
-        max-width: 960px;
-        padding: 2em 2em;
-        gap: 1em;
-        width: 100%;
-      }
-
-      .footer-container > div {
-        flex-grow: 1;
-      }
-
-      .footer-container > div:first-child {
-        flex-grow: 3;
-      }
-
-      .footer-container strong {
-        margin-bottom: 1em;
-        display: block;
-      }
-
-      .footer-container a {
-        margin-bottom: 0.3em;
-        display: block;
-      }
-
     </style>
 
     <style>
@@ -241,53 +134,92 @@
         display: none;
       }
 
-	  h2 {
-		margin: 0;
-		padding: 0;
-		margin-bottom: 0.6em;
-	  }
-
-      .profile {
-		padding: 2em;
-        display: flex;
-        flex-direction: row;
-        gap: 1em;
-		min-width: 200px;
+      h2 {
+        margin: 0;
+        padding: 0;
+        margin-bottom: 0.6em;
       }
 
-	  .profile-info {
-		border-right: 2px solid silver;
-		padding-right: 1em;
-		margin-right: 1em;
-	  }
+      .profile {
+        padding: 2em;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1em;
+        min-width: 200px;
+      }
+
+      .profile-info {
+        border-right: 2px solid silver;
+        padding-right: 1em;
+        margin-right: 1em;
+      }
+
+      .profile-image {
+        border-radius: 50%;
+        width: 128px;
+        height: 128px;
+        background-color: silver;
+      }
+
+      .ellipsis {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block; /* Ensure the element is a block or inline-block */
+        width: 100%; /* Ensure the element has a defined width */
+      }
+
+      .profile-bio {
+        margin-top: 1em;
+        margin-bottom: 0.4em;
+      }
+
+      .profile-did {
+        margin-bottom: 0.4em;
+      }
+
+      .blurred {
+        filter: blur(8px);
+      }
+
+      .unblurred {
+        animation: fadeBlur 0.25s ease-in-out;
+      }
+
+      .profile-link {
+        filter: none;
+      }
+
+      @keyframes fadeBlur {
+        0% {
+          filter: blur(8px);
+        }
+        100% {
+          filter: blur(0px);
+        }
+      }
     </style>
   </head>
   <body>
-	<div  class="hidden">
-    <article id="template" class="profile">
-      <div><img class="profile-image" /></div>
-      <div>
-		<h2>
-		<span class="profile-name"></span><span class="profile-title hidden"></span>
-		</h2>
-		<span class="profile-status profile-info"></span>
-		<span class="profile-location profile-info"></span>
-		<span class="profile-bio profile-info"></span>
-	</div>
-      <div>
-        <a class="profile-link" href=""><button>View on Ariton</button></a>
-      </div>
-
-      <!-- <figure>
-        <a href="single.html"
-          ><img src="images/pic_1.jpg" alt="Image" class="img-responsive"
-        /></a>
-      </figure> -->
-      <!-- <span><a href="single.html" class="article-categories">Travel</a></span>
-      <h2><a href="single.html" class="article-link"></a></h2>
-      <div>March 6th, 2016</div> -->
-    </article>
-	</div>
+    <div class="hidden">
+      <article id="template" class="profile">
+        <div><img class="profile-image blurred" /></div>
+        <div class="profile-details blurred">
+          <h2>
+            <span class="profile-name">Jane Doe</span
+            ><span class="profile-title hidden">(Voluntaryist)</span>
+          </h2>
+          <span class="profile-did ellipsis">did:dht:8qamg...q8foy</span>
+          <span class="profile-status profile-info">Online</span>
+          <span class="profile-location profile-info">Earth</span>
+          <div class="profile-bio">My bio is my bio...</div>
+        </div>
+        <div>
+          <a class="profile-link" href=""><button>View on Ariton</button></a>
+        </div>
+      </article>
+    </div>
 
     <div id="profile"></div>
 
@@ -303,28 +235,99 @@
     <script src="https://unpkg.com/@web5/api@0.11.0/dist/browser.js"></script>
 
     <script>
-      var initializeWeb5 = async function () {
+      function shorten(str) {
+        const firstColonIndex = str.indexOf(":");
+        if (firstColonIndex !== -1) {
+          const secondColonIndex = str.indexOf(":", firstColonIndex + 1);
+          if (secondColonIndex !== -1) {
+            const prefix = str.substring(0, secondColonIndex + 1);
+            str = str.substring(secondColonIndex + 1);
+            return (
+              prefix +
+              str.substring(0, 5) +
+              "..." +
+              str.substring(str.length - 5)
+            );
+          }
+        }
+
+        return str.substring(0, 5) + "..." + str.substring(str.length - 5);
+      }
+
+      async function loadAvatar(web5, did, clonedTemplate) {
+        const protocol = "https://schema.ariton.app/profile";
+
+        const imageResponse = await web5.dwn.records.query({
+          from: did,
+          message: {
+            filter: {
+              author: did,
+              protocol: protocol,
+              protocolPath: "avatar",
+              dataFormat: "image/jpeg",
+            },
+          },
+        });
+
+        if (imageResponse.records && imageResponse.records.length > 0) {
+          const record = imageResponse.records[0];
+
+          // Import without waiting.
+          record.import();
+
+          avatarRecord = record;
+          let image = await record.data.text();
+
+          clonedTemplate.querySelector(".profile-image").src = image;
+          clonedTemplate
+            .querySelector(".profile-image")
+            .classList.remove("blurred");
+
+          clonedTemplate
+            .querySelector(".profile-image")
+            .classList.add("unblurred");
+        } else {
+          console.log("No avatar found.");
+        }
+      }
+
+      var initialize = async function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const did = urlParams.get("did");
+        const protocol = "https://schema.ariton.app/profile";
+        const template = document.getElementById("template");
+        const parentElement = document.getElementById("profile");
+
+        const clonedTemplate = template.cloneNode(true);
+
+        clonedTemplate.classList.remove("hidden");
+
+        // Append the cloned template to the parent element
+        parentElement.insertBefore(clonedTemplate, parentElement.firstChild);
+
+        initializeWeb5(clonedTemplate);
+      };
+
+      var initializeWeb5 = async function (clonedTemplate) {
         const { web5, did: userDid } = await Web5.Web5.connect();
-        console.log(web5, userDid);
+        // console.log(web5, userDid);
 
         const urlParams = new URLSearchParams(window.location.search);
         const did = urlParams.get("did");
+        const protocol = "https://schema.ariton.app/profile";
 
         const response = await web5.dwn.records.query({
           from: did,
           message: {
             filter: {
               author: did,
-              protocol: "https://schema.ariton.app/profile",
+              protocol: protocol,
               protocolPath: "profile",
               dataFormat: "application/json",
               schema: "https://schema.ariton.app/profile/schema/profile",
             },
           },
         });
-
-        const template = document.getElementById("template");
-        const parentElement = document.getElementById("profile");
 
         if (response.records.length === 0) {
           console.log("no records found");
@@ -337,81 +340,46 @@
 
           console.log("records found", entry);
 
-          const clonedTemplate = template.cloneNode(true);
-          clonedTemplate.classList.remove("hidden");
+          clonedTemplate.querySelector(".profile-name").innerText =
+            entry.data.name ?? did;
 
-		//   clonedTemplate.querySelector("#profile-image").src = entry.data.image;
-		  clonedTemplate.querySelector(".profile-name").innerText = entry.data.name ?? did;
+          if (entry.data.title) {
+            clonedTemplate.querySelector(
+              ".profile-title"
+            ).innerText = `(${entry.data.title})`;
+            clonedTemplate
+              .querySelector(".profile-title")
+              .classList.remove("hidden");
+          }
 
-		  if (entry.data.title) {
-			  clonedTemplate.querySelector(".profile-title").innerText = `(${entry.data.title})`;
-			  clonedTemplate.querySelector(".profile-title").classList.remove("hidden");
-		  }
+          clonedTemplate.querySelector(".profile-did").innerText = shorten(did);
+          clonedTemplate.querySelector(".profile-did").title = did;
 
-		  clonedTemplate.querySelector(".profile-status").innerText = entry.data.status;
-		  clonedTemplate.querySelector(".profile-location").innerText = entry.data.location;
-		  clonedTemplate.querySelector(".profile-bio").innerText = entry.data.bio;
+          clonedTemplate.querySelector(".profile-status").innerText =
+            entry.data.status;
+          clonedTemplate.querySelector(".profile-location").innerText =
+            entry.data.location;
+          clonedTemplate.querySelector(".profile-bio").innerText =
+            entry.data.bio;
 
-		//   console.log(clonedTemplate.querySelector(".profile-link"))
-		//   clonedTemplate.querySelector(".profile-link").src = 'https://alpha.ariton.app/profile/' + did;
-		  
-        //   clonedTemplate.querySelector(".img-responsive").src = entry.data.name;
-        //   clonedTemplate.querySelector(".article-link").innerText =
-        //     entry.data.title;
+          clonedTemplate.querySelector(
+            ".profile-link"
+          ).href = `https://alpha.ariton.app/profile/${did}`;
 
-          //   clonedTemplate.querySelector(".article-categories").innerText =
-          //     entry.data.labels.join(", ");
+          clonedTemplate
+            .querySelector(".profile-details")
+            .classList.remove("blurred");
 
-          // clonedTemplate.querySelector('.img-responsive').src = record.tags.image;
-          // clonedTemplate.querySelector('.article-link').innerText = record.tags.title;
-        //   clonedTemplate.querySelector(".article-date").innerText = new Date(
-        //     entry.record.dateModified
-        //   ).toLocaleDateString("en-US", {
-        //     year: "numeric",
-        //     month: "short",
-        //     day: "numeric",
-        //   });
+          clonedTemplate
+            .querySelector(".profile-details")
+            .classList.add("unblurred");
 
-          // Append the cloned template to the parent element
-          parentElement.insertBefore(clonedTemplate, parentElement.firstChild);
+          loadAvatar(web5, did, clonedTemplate);
         }
-
-        // for (const record of response.records) {
-        //   // We only retrieve the data for read-more.
-        //   // const data = record.data.json();
-        //   const clonedTemplate = template.cloneNode(true);
-
-        //   // Remove a class by name from the cloned template
-        //   clonedTemplate.classList.remove("hidden");
-
-        //   const data = await record.data.json();
-        //   console.log("data", data);
-
-        //   clonedTemplate.querySelector(".img-responsive").src = data.image;
-        //   clonedTemplate.querySelector(".article-link").innerText = data.title;
-        //   clonedTemplate.querySelector(".article-categories").innerText =
-        //     data.labels.join(", ");
-
-        //   // clonedTemplate.querySelector('.img-responsive').src = record.tags.image;
-        //   // clonedTemplate.querySelector('.article-link').innerText = record.tags.title;
-        //   clonedTemplate.querySelector(".article-date").innerText = new Date(
-        //     record.dateModified
-        //   ).toLocaleDateString("en-US", {
-        //     year: "numeric",
-        //     month: "short",
-        //     day: "numeric",
-        //   });
-
-        //   // Append the cloned template to the parent element
-        //   parentElement.insertBefore(clonedTemplate, parentElement.firstChild);
-        // }
-
-        // template.classList.add("hidden");
       };
 
       (function () {
-        console.log("initializing web5");
-        initializeWeb5();
+        initialize();
       })();
     </script>
   </body>
