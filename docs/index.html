@@ -290,16 +290,17 @@
           let image = await record.data.text();
 
           clonedTemplate.querySelector(".profile-image").src = image;
-          clonedTemplate
-            .querySelector(".profile-image")
-            .classList.remove("blurred");
-
-          clonedTemplate
-            .querySelector(".profile-image")
-            .classList.add("unblurred");
+ 
         } else {
           console.log("No avatar found.");
         }
+
+        clonedTemplate
+            .querySelector(".profile-image")
+            .classList.remove("blurred");
+          clonedTemplate
+            .querySelector(".profile-image")
+            .classList.add("unblurred");
       }
 
       var initialize = async function () {
@@ -366,27 +367,30 @@
           clonedTemplate.querySelector(".profile-did").title = did;
 
           clonedTemplate.querySelector(".profile-status").innerText =
-            entry.data.status;
+            entry.data.status ?? '';
           clonedTemplate.querySelector(".profile-location").innerText =
-            entry.data.location;
+            entry.data.location ?? '';
           clonedTemplate.querySelector(".profile-bio").innerText =
-            entry.data.bio;
+            entry.data.bio ?? '';
 
           const linksContainer = clonedTemplate.querySelector(".profile-links");
 
-          if (entry.data.links && entry.data.links.length > 0) {
+          console.log('ntry.data.links.length', entry.data.links.length);
 
-            const strongElement = document.createElement("strong");
-            strongElement.innerText = "Links";
-            linksContainer.appendChild(strongElement);
+          if (entry.data.links) {
+            if (entry.data.links.length > 0) {
+              const strongElement = document.createElement("strong");
+              strongElement.innerText = "Links";
+              linksContainer.appendChild(strongElement);
 
-            for (let i = 0; i < entry.data.links.length; i++) {
-              const link = entry.data.links[i];
-              const linkElement = document.createElement("a");
-              linkElement.href = link
-              linkElement.innerText = link;
-              linkElement.target = "_blank";
-              linksContainer.appendChild(linkElement);
+              for (let i = 0; i < entry.data.links.length; i++) {
+                const link = entry.data.links[i];
+                const linkElement = document.createElement("a");
+                linkElement.href = link;
+                linkElement.innerText = link;
+                linkElement.target = "_blank";
+                linksContainer.appendChild(linkElement);
+              }
             }
           }
 
