@@ -107,7 +107,6 @@
         text-decoration: underline;
       }
 
-	  
       button {
         background-color: var(--button-background-color);
         color: var(--button-text-color);
@@ -191,6 +190,14 @@
         filter: none;
       }
 
+      .profile-links {
+        margin-top: 0.8em;
+      }
+
+      .profile-links a {
+        display: block;
+      }
+
       @keyframes fadeBlur {
         0% {
           filter: blur(8px);
@@ -200,11 +207,11 @@
         }
       }
 
-	  @media only screen and (max-width: 600px) {
+      @media only screen and (max-width: 600px) {
         .profile {
-			flex-direction: column;
-		}
-	}
+          flex-direction: column;
+        }
+      }
     </style>
   </head>
   <body>
@@ -220,6 +227,7 @@
           <span class="profile-status profile-info">Online</span>
           <span class="profile-location profile-info">Earth</span>
           <div class="profile-bio">My bio is my bio...</div>
+          <div class="profile-links"></div>
         </div>
         <div>
           <a class="profile-link" href=""><button>View on Ariton</button></a>
@@ -302,7 +310,6 @@
         const parentElement = document.getElementById("profile");
 
         const clonedTemplate = template.cloneNode(true);
-
         clonedTemplate.classList.remove("hidden");
 
         // Append the cloned template to the parent element
@@ -364,6 +371,26 @@
             entry.data.location;
           clonedTemplate.querySelector(".profile-bio").innerText =
             entry.data.bio;
+
+          const linksContainer = clonedTemplate.querySelector(".profile-links");
+
+          if (entry.data.links && entry.data.links.length > 0) {
+
+            const strongElement = document.createElement("strong");
+            strongElement.innerText = "Links";
+            linksContainer.appendChild(strongElement);
+
+            for (let i = 0; i < entry.data.links.length; i++) {
+              const link = entry.data.links[i];
+              const linkElement = document.createElement("a");
+              linkElement.href = link
+              linkElement.innerText = link;
+              linksContainer.appendChild(linkElement);
+            }
+          }
+
+          // clonedTemplate.querySelector(".profile-links").innerText =
+          //   entry.data.links;
 
           clonedTemplate.querySelector(
             ".profile-link"
